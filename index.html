@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASS</title>
+    <style>
+        /* Reset default margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #0077cc;
+            padding: 15px 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left,
+        .nav-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            font-weight: 500;
+        }
+
+        ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            padding: 40px 30px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-left">
+                <li id="appointment-item" style="display: none;"><a href="appointment.html">Appointment</a></li>
+                <li id="admin-panel" style="display: none;"><a href="admin.html">Admin Panel</a></li>
+                <li id="doctor-dashboard" style="display: none;"><a href="doctor.html">Doctor Dashboard</a></li>
+            </ul>
+            <ul class="nav-right">
+                <li id="login-item"><a href="login.html">Log in</a></li>
+                <li id="logout-item" style="display: none;"><a href="#" id="logout-link">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Welcome to MASS!</h1>
+
+    <script>
+        const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+        const role = localStorage.getItem('role');
+
+        const loginItem = document.getElementById('login-item');
+        const logoutItem = document.getElementById('logout-item');
+        const logoutLink = document.getElementById('logout-link');
+
+        const appointmentItem = document.getElementById('appointment-item');
+        const adminPanel = document.getElementById('admin-panel');
+        const doctorDashboard = document.getElementById('doctor-dashboard');
+
+        if (isLoggedIn) {
+            loginItem.style.display = 'none';
+            logoutItem.style.display = 'inline-block';
+
+            // Show interface based on role
+            if (role === 'admin') {
+                adminPanel.style.display = 'inline-block';
+            } else if (role === 'doctor') {
+                doctorDashboard.style.display = 'inline-block';
+            } else if (role === 'patient') {
+                appointmentItem.style.display = 'inline-block';
+            }
+        } else {
+            loginItem.style.display = 'inline-block';
+            logoutItem.style.display = 'none';
+        }
+
+        logoutLink.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Clear login data
+            localStorage.removeItem('loggedIn');
+            localStorage.removeItem('role');
+            localStorage.removeItem('username');
+
+            // Redirect to login
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
