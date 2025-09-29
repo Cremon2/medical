@@ -3,67 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log-in</title>
-    <style>
-        .login {
-            display: flex;
-            flex-direction: column;
-            max-width: 300px;
-            margin: 100px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            gap: 10px;
-        }
-    </style>
+    <title>Login / Sign Up</title>
+    <link rel="stylesheet" href="style/login.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">MASS</div>
+            <ul class="nav-left">
+                <li id="appointment-item" style="display: none;"><a href="appointment.html">Appointment</a></li>
+                <li id="admin-panel" style="display: none;"><a href="admin.html">Admin Panel</a></li>
+                <li id="doctor-dashboard" style="display: none;"><a href="doctor.html">Doctor Dashboard</a></li>
+            </ul>
+            <ul class="nav-right">
+                <a href="index.html" class="home-button">Home</a>
+            </ul>
+            <button class="hamburger" aria-label="Toggle menu">&#9776;</button>
+        </nav>
+    </header>
     <main>
-        <div class="login">
-            <input type="text" id="username" placeholder="Username">
-            <input type="password" id="password" placeholder="Password">
-            <label>
-                <input type="checkbox" id="checkbox"> Show Password
-            </label>
-            <button id="submit">Login</button>
+        <div class="auth-container">
+            <div class="tab-buttons">
+                <button id="login-tab" class="active">Login</button>
+                <button id="signup-tab">Sign Up</button>
+            </div>
+
+            <div id="login-form" class="auth-form active">
+                <input type="text" id="login-username" placeholder="Username">
+                <input type="password" id="login-password" placeholder="Password">
+                <label>
+                    <input type="checkbox" id="show-password"> Show Password
+                </label>
+                <button id="login-button">Login</button>
+                <p id="login-message" class="message"></p>
+            </div>
+
+           <!-- Signup Form -->
+            <div id="signup-form" class="auth-form">
+                <input type="text" id="signup-username" placeholder="Enter your Username">
+                <input type="email" id="signup-email" placeholder="Enter your Email">
+                <input type="password" id="signup-password" placeholder="Enter your Password">
+                <input type="password" id="Retype-password" placeholder="Retype your Password">
+
+                <p><strong>Role:</strong> Patient</p>
+
+                <!-- Terms and Conditions checkbox and link -->
+                <label>
+                    <input type="checkbox" id="terms-checkbox">
+                    I agree to the <a href="#" id="terms-link">Terms and Conditions</a>
+                </label>
+
+                <button id="signup-button">Sign Up</button>
+                <p id="signup-message" class="message"></p>
+            </div>
+
+            <!-- Modal for Terms and Conditions -->
+            <div id="terms-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h2>Terms and Conditions</h2>
+                    
+                    <p>By signing up, you acknowledge that you have read, understood, and agree to be bound by our Terms of Service, Privacy Policy, and any other applicable policies. If you do not agree with any part of these terms, you should not use our services.</p>
+                
+                 
+                        <ol style="padding-left: 20px;">
+                            <li><strong>Eligibility</strong><br>
+                                You confirm that you are at least 18 years old, or have permission from a parent or guardian to use this system.
+                            </li><br>
+                
+                            <li><strong>Use of Service</strong><br>
+                                This service is for scheduling and managing medical appointments and viewing personal health records shared with you.
+                            </li><br>
+                
+                            <li><strong>Accuracy of Information</strong><br>
+                                You agree that all information provided is truthful and up to date. False information may lead to account suspension or removal.
+                            </li><br>
+                
+                            <li><strong>Privacy and Confidentiality</strong><br>
+                                Your data is handled in accordance with our Privacy Policy, which explains how your information is collected and used.
+                            </li><br>
+                
+                            <li><strong>Communication</strong><br>
+                                You agree to receive emails or notifications related to your appointments and account. These can be adjusted in your settings.
+                            </li><br>
+                
+                            <li><strong>Account Security</strong><br>
+                                You are responsible for keeping your login credentials secure. Notify us immediately of any unauthorized access.
+                            </li><br>
+                
+                            <li><strong>Medical Disclaimer</strong><br>
+                                This platform does not provide medical advice. Always consult a licensed healthcare provider for medical concerns.
+                            </li><br>
+                
+                            <li><strong>Modifications</strong><br>
+                                We may update these terms at any time. Continued use of the system means you accept any updates.
+                            </li><br>
+                
+                            <li><strong>Termination</strong><br>
+                                We may suspend or terminate your account if you violate these terms or misuse the system.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+            </div>
+
+            
         </div>
     </main>
-
-    <script>
-        const checkbox = document.getElementById('checkbox');
-        const passwordInput = document.getElementById('password');
-        const submit = document.getElementById('submit');
-
-        // Users: username -> { password, role }
-        const users = {
-            "mon": { password: "123", role: "admin" },
-            "dr.john": { password: "456", role: "doctor" },
-            "jane": { password: "789", role: "patient" }
-        };
-
-        checkbox.addEventListener('change', function () {
-            passwordInput.type = this.checked ? 'text' : 'password';
-        });
-
-        submit.addEventListener('click', function () {
-            const usernameInput = document.getElementById('username').value.trim();
-            const password = passwordInput.value;
-
-            const user = users[usernameInput];
-
-            if (user && user.password === password) {
-                console.log("Login successful");
-
-                // Save login status and role
-                localStorage.setItem('loggedIn', 'true');
-                localStorage.setItem('username', usernameInput);
-                localStorage.setItem('role', user.role);
-
-                // Redirect to index.html
-                window.location.href = 'index.html';
-            } else {
-                alert("Wrong credentials");
-            }
-        });
-    </script>
+    <script src="script/login.js"></script>
 </body>
 </html>

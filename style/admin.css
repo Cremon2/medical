@@ -1,0 +1,428 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  background-color: #0077cc;
+  padding: 15px 30px;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* LAYOUT */
+main {
+  margin-top: 100px;
+  margin-left: 220px;
+  padding: 30px;
+  flex: 1;
+}
+
+aside {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 200px;
+  height: calc(100% - 80px);
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+aside h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+aside ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+aside ul li a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+aside ul li a:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #ccc;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  aside {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    box-shadow: none;
+    margin-top: 100px;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    background-color: #0077cc;
+    display: none;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+}
+/* Report Summary Styles */
+.report-summary {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 20px auto;
+  max-width: 1000px;
+  color: #333;
+}
+
+.report-summary h1 {
+  font-size: 26px;
+  color: #0077cc;
+  margin-bottom: 20px;
+}
+
+.report-summary p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.report-section {
+  margin-bottom: 30px;
+}
+
+.report-section h3 {
+  color: #005fa3;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.report-section ul {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+.report-section ul li {
+  font-size: 15px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.report-table th,
+.report-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.report-table thead {
+  background-color: #0077cc;
+  color: white;
+}
+
+.report-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+  .report-summary {
+      padding: 20px;
+  }
+
+  .report-summary h1 {
+      font-size: 22px;
+  }
+
+  .report-section h3 {
+      font-size: 16px;
+  }
+
+  .report-table th,
+  .report-table td {
+      padding: 8px;
+      font-size: 13px;
+  }
+}
+/* Section Wrapper */
+.section-content {
+  background: #fff;
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 900px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings */
+.section-content h1 {
+  font-size: 24px;
+  color: #0077cc;
+  margin-bottom: 16px;
+}
+
+.section-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* User List */
+.user-list {
+  padding-left: 20px;
+  list-style: disc;
+  line-height: 1.8;
+}
+
+.user-list li {
+  font-size: 15px;
+}
+
+/* User Management Table Styles */
+.section-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.section-content table thead {
+  background-color: #0077cc;
+  color: white;
+  text-align: left;
+}
+
+.section-content table th, 
+.section-content table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.section-content table tr:hover {
+  background-color: #f0f8ff;
+}
+
+/* Role Tags */
+.role-tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  text-transform: capitalize;
+}
+
+.role-tag.admin {
+  background-color: #d9534f; /* red */
+}
+
+.role-tag.doctor {
+  background-color: #5bc0de; /* blue */
+}
+
+.role-tag.patient {
+  background-color: #5cb85c; /* green */
+}
+
+/* Action Buttons */
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: background 0.2s ease;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Responsive Table Wrapper (Optional) */
+@media (max-width: 768px) {
+  .section-content table {
+      font-size: 12px;
+  }
+
+  .section-content table th,
+  .section-content table td {
+      padding: 8px;
+  }
+
+  .edit-btn, .delete-btn {
+      font-size: 11px;
+      padding: 4px 8px;
+  }
+}
+.chart-small {
+  max-width: 250px;
+  max-height: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
+#genderChart {
+  max-width: 300px;
+  max-height: 300px;
+  margin: 0 auto; /* centers the chart */
+}
+#ageGroupChart {
+  max-width: 800px;
+  max-height: 500px;
+  margin: 0 auto; /* centers the chart */
+}
+#otherStatsChart{
+  max-width: 800px;
+  max-height: 500px;
+  margin: 0 auto; /* centers the chart */
+}
+
+/* Settings Form */
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.settings-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-form label {
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.settings-form input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.settings-form button {
+  align-self: flex-start;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.settings-form button:hover {
+  background-color: #005fa3;
+}

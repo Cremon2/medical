@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointment - MASS</title>
+  <link rel="stylesheet" href="style/appointment.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MASS</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#" id="logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Book an Appointment</h1>
+
+    <!-- Appointment Type Selector -->
+    <section>
+      <label for="appointment-kind"><strong>What kind of appointment are you looking for?</strong></label>
+      <select id="appointment-kind" required>
+        <option value="">-- Choose Appointment Type --</option>
+        <option value="new">New Patient</option>
+        <option value="follow-up">Follow Up</option>
+      </select>
+    </section>
+
+    <!-- New Patient Form -->
+    <form id="new-patient-form" style="display: none;">
+      <h3>New Patient Appointment</h3>
+
+      <section class="disclosure">
+        <h4>Disclosure</h4>
+        <p>
+          You are considered a <strong>new patient</strong> if you have not been seen by any primary care provider at MASS in the last 3 years.
+          We are currently NOT scheduling Obstetrics/Gynecology visits, procedures, or treatment for COVID online. Please call <strong>866-600-2273</strong> for those.
+        </p>
+        <label>
+          <input type="checkbox" id="new-acknowledgment" required>
+          I acknowledge the disclosure above.
+        </label>
+      </section>
+
+      <label for="new-specialty">Select Specialty:</label>
+      <select id="new-specialty" required></select>
+
+      <label for="new-doctor">Select Doctor:</label>
+      <select id="new-doctor" required></select>
+
+      <label for="new-date">Date:</label>
+      <input type="date" id="new-date" required>
+
+      <label for="new-time">Time:</label>
+      <input type="time" id="new-time" required>
+
+      <button type="submit">Book New Patient Appointment</button>
+      <p class="message" id="new-message"></p>
+    </form>
+
+    <!-- Follow-Up Form -->
+    <form id="follow-up-form" style="display: none;">
+      <h3>Follow-Up Appointment</h3>
+
+      <label for="follow-specialty">Select Specialty:</label>
+      <select id="follow-specialty" required></select>
+
+      <label for="follow-doctor">Select Doctor:</label>
+      <select id="follow-doctor" required></select>
+
+      <label for="follow-date">Date:</label>
+      <input type="date" id="follow-date" required>
+
+      <label for="follow-time">Time:</label>
+      <input type="time" id="follow-time" required>
+
+      <button type="submit">Book Follow-Up Appointment</button>
+      <p class="message" id="follow-message"></p>
+    </form>
+
+    <!-- Appointments Section -->
+    <section class="appointments">
+      <h2>Your Appointments</h2>
+      <ul id="appointment-list"></ul>
+    </section>
+
+    <!-- Doctor Schedules -->
+    <section class="doctor-schedule">
+      <h2>Doctor Schedule</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Doctor</th>
+            <th>Days Available</th>
+            <th>Times</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dr. John</td>
+            <td>Monday, Wednesday</td>
+            <td>9:00 AM - 12:00 PM</td>
+          </tr>
+          <tr>
+            <td>Dr. Smith</td>
+            <td>Tuesday, Thursday</td>
+            <td>1:00 PM - 4:00 PM</td>
+          </tr>
+          <tr>
+            <td>Dr. Emily</td>
+            <td>Friday</td>
+            <td>10:00 AM - 2:00 PM</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script/appointment.js" defer></script>
+</body>
+</html>

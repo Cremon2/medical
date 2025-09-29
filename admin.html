@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style/admin.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MASS</div>
+      <ul class="nav-left">
+        <li id="appointment-item" style="display: none;"><a href="appointment.html">Appointment</a></li>
+        <li id="admin-panel" style="display: none;"><a href="admin.html">Admin Panel</a></li>
+        <li id="doctor-dashboard" style="display: none;"><a href="doctor.html">Doctor Dashboard</a></li>
+      </ul>
+      <ul class="nav-right">
+        <li id="logout-item" style="display: none;"><a href="#" id="logout-link">Log out</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu">&#9776;</button>
+    </nav>
+  </header>
+
+  <aside>
+    <h2>Admin Actions</h2>
+    <ul>
+      <li><a href="#" data-section="manage-users">Manage Users</a></li>
+      <li><a href="#" data-section="view-reports">View Reports</a></li>
+      <li><a href="#" data-section="view-appointments">View Appointment</a></li>
+      <li><a href="#" data-section="system-settings">System Settings</a></li>
+    </ul>
+  </aside>
+
+  <main id="main-content">
+    <h1>Admin Panel</h1>
+    <p>Welcome to the Admin Panel. Here you can manage users, view reports, and configure system settings.</p>
+  </main>
+
+  <section id="manage-users" style="display: none;"></section>
+  <section id="view-reports" style="display: none;"></section>
+  <section id="system-settings" style="display: none;"></section>
+
+  <footer>
+    <p>&copy; 2025 Medical Appointment Scheduling System (MASS). All rights reserved.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script/admin.js"></script>
+</body>
+</html>
